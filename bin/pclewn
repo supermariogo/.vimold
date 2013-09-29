@@ -1,0 +1,2 @@
+#!/bin/bash
+pyclewn --gdb="async" --args="--args $@" --cargs='-c "runtime misc/pclewn.vim" -c "call PyClewnPre()"'
