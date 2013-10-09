@@ -161,6 +161,12 @@ vmap <C-c> "+y
 map <C-x> "+x
 imap <C-x> <Esc>"+x
 vmap <C-x> "+x
+"------------------------------------------------------
+"wrap 
+"------------------------------------------------------
+set nowrap 
+map nw :set nowrap<cr>
+map yw :set wrap<cr>
 " D delete to end of the line 
 "------------------------------------------------------
 "NERD_commenter hotkey change 
