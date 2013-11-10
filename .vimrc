@@ -6,9 +6,9 @@ set backspace=indent,eol,start "help bs
 set ww=b,s,h,l,<,>,[,]  "help ww
 set hlsearch
 set autoindent       "auto indent, inherit from last row
-set tabstop=8        " tab space=4
-set softtabstop=8   " soft tab    
-set shiftwidth=8    " aindent use 4 space
+set tabstop=4        " tab space=4
+set softtabstop=4   " soft tab    
+set shiftwidth=4    " aindent use 4 space
 set cindent         " use c style indent
 set showmatch       " auto match ()
 filetype on "detect file type
