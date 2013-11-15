@@ -194,4 +194,3 @@ iabbr ML My402List
 iabbr fpfe fprintf(stderr,"");<left><left><left>
 iabbr fpfi fprintf(stdin,"");<left><left><left> 
 iabbr fpfo fprintf(stdout,"");<left><left><left> 
-iabbr print printf("");<left><left><left>
