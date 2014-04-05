@@ -17,13 +17,14 @@ syntax enable
 syntax on
 set number "line number
 
-"------------------------------------------------------
-"GUI font settings
-"------------------------------------------------------
+"GUI is a big problem
 if has("gui_running")
+	"------------------------------------------------------
+	"font settings
+	"------------------------------------------------------
     set lines=28 columns=118 "gui mode set lines and colums
 	set mousemodel=popup "GUI当右键单击窗口的时候，弹出快捷菜单"
-    set guioptions-=T "Dont show the tools.
+    set guioptions-=T "show the tools.
     " set guioptions-=m
     set winaltkeys=no "Alt组合键不映射到菜单上
     if has("gui_gtk2")
@@ -34,14 +35,13 @@ if has("gui_running")
     elseif has("gui_win32")
    :set guifont=Consolas:h12:cANSI
     endif
+	"-----------------------------------------------------
+	"powerline configuration
+	"-----------------------------------------------------
+	set laststatus=2
+	set encoding=utf-8
 endif
 
-
-"-----------------------------------------------------
-"powerline configuration
-"-----------------------------------------------------
-set laststatus=2
-set encoding=utf-8
 
 "------------------------------------------------------
 "auto complete plugin 
@@ -117,7 +117,6 @@ let g:miniBufExplModSelTarget = 1    " disable edit at uneditable win i..e. tagl
 let g:vimrc_author='Ze Mao' 
 let g:vimrc_email='zemao@usc.edu' 
 let g:vimrc_homepage='http://www-scf.usc.edu/~zemao/' 
- 
 nmap <A-1> :AuthorInfoDetect<cr>
 "------------------------------------------------------
 "quickfix
