@@ -54,7 +54,7 @@ let OmniCpp_MayCompleteArrow = 1 " autocomplete with->
 let OmniCpp_MayCompleteScope=1" autocomplete with ::
 let OmniCpp_SelectFirstItem = 2 "select first item (but don't insert)
 let OmniCpp_NamespaceSearch = 2 " search namespaces in this and included files
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype in popup window
+"let OmniCpp_ShowPrototypeInAbbr = 1 " show function prototype in popup window
 let OmniCpp_GlobalScopeSearch=1 " enable the global scope search
 let OmniCpp_DisplayMode=1 " Class scope completion mode: always show all members
 "let OmniCpp_DefaultNamespaces=["std"]
@@ -120,14 +120,9 @@ nmap <A-1> :AuthorInfoDetect<cr>
 "------------------------------------------------------
 "quickfix
 "------------------------------------------------------
-map <silent><F5> <Esc>:w<CR>:make clean<CR>:cw<CR>
-map <silent><F6> <Esc>:w<CR>:make <CR>:cw<CR>
-map <F2> :copen<CR>
-map <F3> :cp<CR>
-map <F4> :cn<CR>
 
 imap <silent><F5> <Esc>:w<CR>:make clean<CR>:cw<CR>
-imap <silent><F6> <Esc>:w<CR>:make <CR>:cw<CR>
+imap <silent><F6> <Esc>:w<CR>:make <CR>:cw<CR> <F2>
 imap <F2> :copen<CR>
 imap <F3> :cp<CR>
 imap <F4> :cn<CR>
@@ -191,4 +186,7 @@ iabbr //*** //*****************************************************
 iabbr ML My402List
 iabbr fpfe fprintf(stderr,"");<left><left><left>
 iabbr fpfi fprintf(stdin,"");<left><left><left> 
-iabbr fpfo fprintf(stdout,"");<left><left><left> 
+iabbr fpfo fprintf(stdout,"");<left><left><left>
+"------------------------------------------------------
+:cs add /home/mao/hp/tot/tpdsrc/cscope.out
+ 
