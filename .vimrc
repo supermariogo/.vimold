@@ -1,3 +1,4 @@
+
 "-------------------------------------------------------
 "general configuration
 "------------------------------------------------------
@@ -80,8 +81,8 @@ nmap wm :WMToggle<cr>
 "------------------------------------------------------
 "ctags setting 按下F11重新生成tag文件，并更新taglist
 "------------------------------------------------------
-map <F11> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
-imap <F11> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
+map <F11> :!ctags -R -f --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
+imap <F11> <ESC>:!ctags -R -f --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
 set tags=tags
 set tags+=./tags "add current directory's generated tags file
 set tags+=~/.vim/systags "add new tags file
@@ -113,10 +114,10 @@ let g:miniBufExplModSelTarget = 1    " disable edit at uneditable win i..e. tagl
 "------------------------------------------------------
 "Auto Author
 "------------------------------------------------------
-let g:vimrc_author='Ze Mao' 
-let g:vimrc_email='zemao@usc.edu' 
-let g:vimrc_homepage='http://www-scf.usc.edu/~zemao/' 
-nmap <A-1> :AuthorInfoDetect<cr>
+"let g:vimrc_author='Ze Mao' 
+"let g:vimrc_email='zemao@usc.edu' 
+"let g:vimrc_homepage='http://www-scf.usc.edu/~zemao/' 
+"nmap <A-1> :AuthorInfoDetect<cr>
 "------------------------------------------------------
 "quickfix
 "------------------------------------------------------
@@ -188,5 +189,32 @@ iabbr fpfe fprintf(stderr,"");<left><left><left>
 iabbr fpfi fprintf(stdin,"");<left><left><left> 
 iabbr fpfo fprintf(stdout,"");<left><left><left>
 "------------------------------------------------------
-:cs add /home/mao/hp/tot/tpdsrc/cscope.out
- 
+
+if has("cscope")
+    set cscopetag   " 使支持用 Ctrl+]  和 Ctrl+t 快捷键在代码间跳来跳去
+    " check cscope for definition of a symbol before checking ctags:
+    " set to 1 if you want the reverse search order.
+    set csto=1
+	set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
+	cs add /home/mao/hp/tot/tpdsrc/cscope.out
+
+     " add any cscope database in current directory
+     if filereadable("cscope.out")
+         cs add cscope.out
+     " else add the database pointed to by environment variable
+     "elseif $CSCOPE_DB !=""
+       "  cs add $CSCOPE_DB
+     endif
+
+     " show msg when any other cscope db added
+     set cscopeverbose
+
+     nmap <A-1>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+     nmap <A-1>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+     nmap <A-1>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+     nmap <A-1>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+     nmap <A-1>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+     nmap <A-1>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+     nmap <A-1>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+     nmap <A-1>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+endif
